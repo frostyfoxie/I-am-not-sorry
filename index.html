@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+    NOTICE: This code is protected by International Copyright Law. 
+    Unauthorized reproduction or cloning is strictly prohibited. 
+    Copyright (c) 2026 oneinagoogolplex._
+    -->
+    <title>I AM NOT SORRY | Award Winning Digital Zine</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,900;1,900&family=Playfair+Display:ital,wght@0,900;1,900&family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body oncontextmenu="return false;">
+
+    <div id="cursor"></div>
+    <div class="noise"></div>
+    <div class="vignette"></div>
+
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <filter id="refractionFilter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="30" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+
+    <div id="bubble-positioner">
+        <div id="bubble-stretch-wrapper">
+            <div id="bubble-skin">
+                <div id="iridescence"></div>
+                <div id="fixed-glints"></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section" id="hero">
+        <div class="w-full relative z-10">
+            <div class="line-mask"><h1 class="h-mega stagger-reveal" id="hero-t1">I AM NOT</h1></div>
+            <div class="line-mask"><h1 class="h-mega text-red-600 stagger-reveal" id="hero-t2">SORRY</h1></div>
+            <div class="grid grid-cols-12 gap-6 mt-10 md:mt-20">
+                <div class="col-span-12 md:col-start-7 md:col-span-6">
+                    <h2 class="h-sub reveal-type mb-6" id="hero-sub">Samaaj ke bandhan todne ke liye.</h2>
+                    <p class="text-lg md:text-xl text-muted font-light max-w-xl leading-relaxed reveal-type" id="hero-desc">Society surrounds us with invisible spheres. Some offer comfort, all offer limitation. *Bulbule phodna hi aazaadi hai.*</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-white text-black" id="patriarchy">
+        <div class="side-label-wrapper absolute left-0 top-0 h-full w-20 flex items-center justify-center border-r border-black/5 opacity-40">
+            <span class="rotate-[-90deg] uppercase text-[10px] font-black tracking-[1em] whitespace-nowrap" id="side-label-1">Pitrasatta Ka Bojh</span>
+        </div>
+        <div class="grid grid-cols-12 gap-6 w-full">
+            <div class="col-span-12 lg:pl-10">
+                <h2 class="h-mega reveal-type" id="p-t1">PATRI</h2>
+                <h2 class="h-mega mt-[-0.2em] text-red-600 reveal-type" id="p-t2">ARCHY</h2>
+                <div class="grid md:grid-cols-2 gap-10 mt-10">
+                    <p class="text-3xl md:text-5xl font-light tracking-tighter leading-tight reveal-type" id="p-desc">Inherited chains disguised as "Khandaan ki Izzat". A system designed for silence.</p>
+                    <div class="flex flex-col justify-center">
+                        <span class="text-red-600 font-black text-xs uppercase tracking-widest mb-4" id="p-tag">Log Kya Kahenge?</span>
+                        <div class="w-full h-1 bg-black"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section border-y border-white/10 overflow-hidden" id="stereotypes">
+        <div class="grid grid-cols-12 gap-y-10 lg:gap-x-12 items-start relative">
+            <div class="col-span-12 lg:col-span-8">
+                <h2 class="h-mega reveal-type text-white" id="st-t1">STEREO</h2>
+                <h2 class="h-mega mt-[-0.1em] text-red-600 reveal-type" id="st-t2">TYPES</h2>
+                <p class="mt-8 text-xl md:text-3xl text-muted leading-tight max-w-2xl reveal-type" id="st-desc">"Ghar ki Lakshmi" or "Zabaan Chalaane Wali". These labels are the walls of your cage.</p>
+            </div>
+            <div class="col-span-12 lg:col-span-4 lg:mt-32">
+                <div class="border-l-8 border-red-600 p-6 md:p-12 bg-white/5" id="st-box">
+                    <h3 class="h-sub mb-6 italic" id="st-box-t">"Sanskaar is not Submission."</h3>
+                    <p class="text-lg md:text-xl font-light opacity-60 reveal-type" id="st-box-p">Identity is not a script written by people afraid of your voice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-red-600 text-white overflow-hidden p-0" id="violence">
+        <div class="marquee-wrapper flex whitespace-nowrap py-10">
+            <h2 class="h-mega text-[12vw] animate-marquee" id="m-1">SEXUAL VIOLENCE ● INSAAF ● RAPE ● HAQQ ●&nbsp;</h2>
+            <h2 class="h-mega text-[12vw] animate-marquee" id="m-2">SEXUAL VIOLENCE ● INSAAF ● RAPE ● HAQQ ●&nbsp;</h2>
+        </div>
+        <div class="mt-10 text-center px-6 pb-20">
+            <p class="text-2xl md:text-5xl font-light leading-tight reveal-type" id="v-desc">A system that audits the survivor's character more than the predator's act.</p>
+        </div>
+    </section>
+
+    <section class="section relative bg-white text-black overflow-hidden" id="body-policing">
+        <div class="grid grid-cols-12 gap-6 relative z-10 w-full">
+            <div class="col-span-12 lg:col-span-10">
+                <h2 class="h-mega reveal-type" id="bp-t1">BODY</h2>
+                <h2 class="h-mega mt-[-0.2em] text-red-600 reveal-type" id="bp-t2">POLICING</h2>
+                <div class="mt-8 grid md:grid-cols-2 gap-10">
+                    <p class="text-xl md:text-3xl font-light leading-tight reveal-type" id="bp-desc">A body treated as "Amaanat" belonging to everyone but the person inside it. Public auditing is a tool of control.</p>
+                    <div class="flex items-end">
+                        <div class="text-xs font-black border-t-2 border-black pt-4 uppercase tracking-widest" id="bp-status">Status: Constant / Besharam / Unfair</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-red-600 text-white" id="victim-blaming">
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 flex flex-col items-center">
+                <h2 class="h-mega text-black opacity-30 select-none text-[8vw]" id="vb-bg1">KYUN GAYI THI?</h2>
+                <h2 class="h-mega reveal-type" id="vb-t1">VICTIM</h2>
+                <h2 class="h-mega text-black reveal-type" id="vb-t2">BLAMING</h2>
+                <h2 class="h-mega text-black opacity-30 select-none text-[8vw]" id="vb-bg2">GALTI USKI THI?</h2>
+            </div>
+            <div class="col-span-12 md:col-start-4 md:col-span-6 text-center mt-10 md:mt-20">
+                <p class="h-sub mb-10" id="vb-desc1">"When the predator is protected by the survivor's shame."</p>
+                <p class="text-lg md:text-xl font-bold uppercase tracking-widest" id="vb-desc2">Samaaj shreds the survivor's "Aukat" to save the guilty's face.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="burst">
+        <div class="flex flex-col items-center text-center">
+            <h2 class="h-mega text-red-600 reveal-type animate-pulse" id="burst-t1">BURST IT.</h2>
+            <div class="max-w-3xl mt-10">
+                <p class="h-sub reveal-type" id="burst-sub">Empowerment is the needle.</p>
+                <p class="mt-12 text-sm md:text-base font-bold tracking-[0.2em] text-white/50 uppercase max-w-sm mx-auto leading-relaxed animate-pulse">Please click on the bubble to pop it and proceed to the next section!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="resources-section">
+        <div class="max-w-6xl mx-auto w-full">
+            <h2 class="h-mega mb-10" id="res-title">YOUR POWER.</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20">
+                <div>
+                    <h3 class="text-xs font-black uppercase tracking-widest border-b border-current pb-4 mb-6 md:mb-10">01 Community</h3>
+                    <div class="space-y-2">
+                        <a href="https://www.reddit.com/r/TwoXIndia/" target="_blank" class="resource-card block"><h4 class="h-sub text-2xl md:text-3xl">r/TwoXIndia</h4><p class="opacity-60 uppercase text-[10px] mt-2">Safe space for Indian women.</p></a>
+                        <a href="https://safecity.in/" target="_blank" class="resource-card block"><h4 class="h-sub text-2xl md:text-3xl">Safecity India</h4><p class="opacity-60 uppercase text-[10px] mt-2">Map and share harassment stories.</p></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xs font-black uppercase tracking-widest border-b border-current pb-4 mb-6 md:mb-10">02 Help</h3>
+                    <div class="space-y-2">
+                        <a href="https://www.digitalindia.gov.in/initiative/ncw-womens-helpline/" target="_blank" class="resource-card block"><h4 class="h-sub text-2xl md:text-3xl">NCW Portal</h4><p class="opacity-60 uppercase text-[10px] mt-2">Official Women's Commission.</p></a>
+                        <a href="https://cybercrime.gov.in/Default.aspx" target="_blank" class="resource-card block"><h4 class="h-sub text-2xl md:text-3xl">Cyber Help</h4><p class="opacity-60 uppercase text-[10px] mt-2">Report online abuse.</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="p-10 md:p-20 border-t border-white/5 flex flex-col items-center text-center gap-10 transition-all duration-1000">
+        <div class="w-full flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="h-mega text-lg md:text-2xl opacity-40" id="f-1">NOT SORRY</div>
+            <div class="text-[10px] font-black uppercase tracking-[0.5em] opacity-40" id="f-2">Designed for liberation.</div>
+        </div>
+        
+        <div class="pt-10 border-t border-white/5 w-full">
+            <p class="text-[9px] uppercase tracking-[0.4em] opacity-40 mb-3 font-bold">Concept & Direction</p>
+            <a href="https://instagram.com/oneinagoogolplex._" target="_blank" class="author-credit h-sub text-xl md:text-2xl not-italic">
+                oneinagoogolplex._
+            </a>
+        </div>
+    </footer>
+
+    <script src="bubble_engine.js"></script>
+    <script src="core_logic.js"></script>
+</body>
+</html>
