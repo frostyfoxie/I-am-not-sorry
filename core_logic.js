@@ -4,7 +4,7 @@
 */
 (function(){
     // CHANGE THIS TO YOUR ACTUAL GITHUB LINK
-    const _0xDOMAIN = 'your-username.github.io'; 
+    const _0xDOMAIN = 'frostyfoxie.github.io'; 
 
     if(window.location.hostname !== _0xDOMAIN && window.location.hostname !== 'localhost') {
         document.body.innerHTML = "<h1>Unauthorized Clone Detected. Source Protected by oneinagoogolplex._</h1>";
