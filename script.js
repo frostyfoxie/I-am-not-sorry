@@ -104,12 +104,23 @@ function updateBubble() {
 
 skinEl.addEventListener('click', () => {
     if (isPopped) return;
-    // Simplified pop condition: works as long as bubble is visible on the Burst section
-    isPopped = true;
-    gsap.to(skinEl, {
-        scale: 3, opacity: 0, duration: 0.4, ease: "expo.out",
-        onComplete: revealHope
-    });
+
+    // 1. Get the bounding rectangle of the burst section
+    const burstRect = burstSection.getBoundingClientRect();
+    
+    // 2. Check if the bubble is roughly within the viewport area of the burst section.
+    // We check if the section is currently visible on screen.
+    const isBurstVisible = burstRect.top < window.innerHeight && burstRect.bottom > 0;
+
+    if (isBurstVisible) {
+        isPopped = true;
+        gsap.to(skinEl, {
+            scale: 3, opacity: 0, duration: 0.4, ease: "expo.out",
+            onComplete: revealHope
+        });
+    } else {
+        console.log("Not in the burst section, cannot pop!");
+    }
 });
 
 function revealHope() {
