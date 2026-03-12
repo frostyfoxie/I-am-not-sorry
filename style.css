@@ -6,14 +6,10 @@
     --section-bg-white: #ffffff;
     --section-text-black: #000000;
     --bubble-size: 340px;
-    --border: rgba(255, 255, 255, 0.1);
+    --border: rgba(255,255,255,0.1);
 }
 
-@media (max-width: 768px) {
-    :root {
-        --bubble-size: 220px;
-    }
-}
+@media (max-width: 768px) { :root { --bubble-size: 220px; } }
 
 body.hope-mode {
     --bg: #fffbf2;
@@ -22,7 +18,7 @@ body.hope-mode {
     --muted: #555;
     --section-bg-white: #fffbf2;
     --section-text-black: #1a1a1a;
-    --border: rgba(0, 0, 0, 0.1);
+    --border: rgba(0,0,0,0.1);
 }
 
 body {
@@ -43,11 +39,11 @@ body {
     transition: background-color 1.5s ease, border-color 1.5s ease;
 }
 
-.h-mega {
-    font-family: 'Archivo', sans-serif;
-    font-weight: 900;
-    line-height: 0.8;
-    letter-spacing: -0.06em;
+.h-mega { 
+    font-family: 'Archivo', sans-serif; 
+    font-weight: 900; 
+    line-height: 0.8; 
+    letter-spacing: -0.06em; 
     text-transform: uppercase;
     font-size: clamp(3rem, 14vw, 15rem);
     word-break: break-word;
@@ -63,25 +59,21 @@ body {
 
 #bubble-positioner {
     position: fixed;
-    width: var(--bubble-size);
-    height: var(--bubble-size);
+    width: var(--bubble-size); height: var(--bubble-size);
     will-change: transform;
     z-index: 1000;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     pointer-events: none;
 }
 
 #bubble-stretch-wrapper {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     will-change: transform;
     pointer-events: auto;
 }
 
 #bubble-skin {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     border-radius: 50%;
     cursor: grab;
     position: relative;
@@ -94,143 +86,39 @@ body {
 }
 
 #iridescence {
-    position: absolute;
-    inset: -20%;
-    background: conic-gradient(from 180deg, rgba(255, 0, 0, 0.1), rgba(255, 255, 0, 0.1), rgba(0, 255, 0, 0.1), rgba(0, 255, 255, 0.1), rgba(0, 0, 255, 0.1), rgba(255, 0, 255, 0.1), rgba(255, 0, 0, 0.1));
-    filter: blur(40px);
-    mix-blend-mode: screen;
-    opacity: 0.6;
+    position: absolute; inset: -20%;
+    background: conic-gradient(from 180deg, rgba(255,0,0,0.1), rgba(255,255,0,0.1), rgba(0,255,0,0.1), rgba(0,255,255,0.1), rgba(0,0,255,0.1), rgba(255,0,255,0.1), rgba(255,0,0,0.1));
+    filter: blur(40px); mix-blend-mode: screen; opacity: 0.6;
     animation: swirl 12s linear infinite;
 }
 
-#fixed-glints {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-}
-
+#fixed-glints { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; }
 #fixed-glints::before {
-    content: '';
-    position: absolute;
-    top: 10%;
-    left: 15%;
-    width: 30%;
-    height: 15%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
-    filter: blur(8px);
-    border-radius: 50%;
-    transform: rotate(-35deg);
+    content: ''; position: absolute; top: 10%; left: 15%; width: 30%; height: 15%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+    filter: blur(8px); border-radius: 50%; transform: rotate(-35deg);
 }
 
-@keyframes swirl {
-    from {
-        transform: rotate(0deg);
-    }
+@keyframes swirl { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-    to {
-        transform: rotate(360deg);
-    }
-}
+.section { padding: 12vh 6vw; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; }
+.line-mask { overflow: hidden; }
+.noise { position: fixed; inset: 0; background: url('https://grainy-gradients.vercel.app/noise.svg'); opacity: 0.12; pointer-events: none; z-index: 9999; mix-blend-mode: overlay; }
+.vignette { position: fixed; inset: 0; background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.6) 100%); pointer-events: none; z-index: 9998; transition: opacity 2s ease; }
+body.hope-mode .vignette { opacity: 0; }
 
-.section {
-    padding: 12vh 6vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-}
+#cursor { position: fixed; width: 12px; height: 12px; background: white; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
+@media (pointer: coarse) { #cursor { display: none; } }
+body.locked { overflow: hidden; touch-action: none; }
 
-.line-mask {
-    overflow: hidden;
-}
+#resources-section { display: none; background: var(--section-bg-white); color: var(--section-text-black); z-index: 10; }
+.resource-card { border-bottom: 1px solid var(--border); padding: 1.5rem 0; transition: transform 0.3s ease, color 0.3s ease; }
+.resource-card:hover { transform: translateX(15px); color: var(--accent); }
 
-.noise {
-    position: fixed;
-    inset: 0;
-    background: url('https://grainy-gradients.vercel.app/noise.svg');
-    opacity: 0.12;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: overlay;
-}
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.animate-marquee { display: inline-block; animation: marquee 20s linear infinite; }
 
-.vignette {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
-    pointer-events: none;
-    z-index: 9998;
-    transition: opacity 2s ease;
-}
-
-body.hope-mode .vignette {
-    opacity: 0;
-}
-
-#cursor {
-    position: fixed;
-    width: 12px;
-    height: 12px;
-    background: white;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-}
-
-@media (pointer: coarse) {
-    #cursor {
-        display: none;
-    }
-}
-
-body.locked {
-    overflow: hidden;
-    touch-action: none;
-}
-
-#resources-section {
-    display: none;
-    background: var(--section-bg-white);
-    color: var(--section-text-black);
-    z-index: 10;
-}
-
-.resource-card {
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 0;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.resource-card:hover {
-    transform: translateX(15px);
-    color: var(--accent);
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-.animate-marquee {
-    display: inline-block;
-    animation: marquee 20s linear infinite;
-}
-
-@media (max-width: 1100px) {
-    .side-label-wrapper {
-        display: none;
-    }
-}
+@media (max-width: 1100px) { .side-label-wrapper { display: none; } }
 
 .author-credit {
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -239,7 +127,6 @@ body.locked {
     display: inline-block;
     position: relative;
 }
-
 .author-credit:hover {
     color: var(--accent);
     transform: translateY(-3px);
