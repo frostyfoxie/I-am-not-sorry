@@ -116,7 +116,7 @@ body.locked { overflow: hidden; touch-action: none; }
 .resource-card:hover { transform: translateX(15px); color: var(--accent); }
 
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-.animate-marquee { display: inline-block; animation: marquee 20s linear infinite; }
+.animate-marquee { display: inline-block; animation: marquee 10s linear infinite; }
 
 @media (max-width: 1100px) { .side-label-wrapper { display: none; } }
 
