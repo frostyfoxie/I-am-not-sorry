@@ -85,7 +85,7 @@ function updateBubble() {
     const size = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--bubble-size'));
     
     if (isDragging) {
-        pos.x += (targetPos.x - pos.x) * 0.15;
+        pos.x += (targetPos.x - pos.x) * 0.5;
         pos.y += (targetPos.y - pos.y) * 0.15;
         vel.x = pos.x - lastMouse.x; vel.y = pos.y - lastMouse.y;
         lastMouse.x = pos.x; lastMouse.y = pos.y;
