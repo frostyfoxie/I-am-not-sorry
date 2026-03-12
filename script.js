@@ -28,7 +28,7 @@ document.onkeydown = function(e) {
     if (!allowedDomains.includes(currentHost)) {
         // If the domain doesn't match, redirect and wipe the page
         window.location.href = redirectLink;
-        document.body.innerHTML = "Redirecting... madarchod sale meri website hack karega lawde hattt";
+        document.body.innerHTML = "Redirecting madarchod sale meri website copy karega lawde hattt...";
     }
 })();
 const hopeMap = {
