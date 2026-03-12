@@ -3,10 +3,10 @@
    LEGAL: Cloning this source is a violation of DMCA 2026.
 */
 (function(){
-    // CHANGE THIS TO YOUR ACTUAL GITHUB LINK
+    // CORRECT DOMAIN FOR frostyfoxie.github.io
     const _0xDOMAIN = 'frostyfoxie.github.io'; 
 
-    if(window.location.hostname !== _0xDOMAIN && window.location.hostname !== 'localhost') {
+    if(window.location.hostname !== _0xDOMAIN && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
         document.body.innerHTML = "<h1>Unauthorized Clone Detected. Source Protected by oneinagoogolplex._</h1>";
         window.location.href = "https://instagram.com/oneinagoogolplex._";
     }
