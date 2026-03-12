@@ -1,0 +1,23 @@
+/* Copyright 2026 oneinagoogolplex._ */
+:root{--bg:#080808;--accent:#FF0032;--text:#F0F0F0;--muted:#606060;--section-bg-white:#fff;--section-text-black:#000;--bubble-size:340px;--border:rgba(255,255,255,0.1)}
+@media (max-width:768px){:root{--bubble-size:220px}}
+body.hope-mode{--bg:#fffbf2;--accent:#ff3366;--text:#1a1a1a;--muted:#555;--section-bg-white:#fffbf2;--section-text-black:#1a1a1a;--border:rgba(0,0,0,0.1)}
+body{background-color:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background-color 1.5s ease,color 1.5s ease;width:100%;user-select:none;-webkit-user-select:none}
+.h-mega{font-family:'Archivo',sans-serif;font-weight:900;line-height:.8;letter-spacing:-.06em;text-transform:uppercase;font-size:clamp(3rem,14vw,15rem);word-break:break-word}
+.h-sub{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;line-height:1.1;font-size:clamp(1.5rem,5vw,4rem)}
+#bubble-positioner{position:fixed;width:var(--bubble-size);height:var(--bubble-size);will-change:transform;z-index:1000;top:0;left:0;pointer-events:none}
+#bubble-stretch-wrapper{width:100%;height:100%;will-change:transform;pointer-events:auto}
+#bubble-skin{width:100%;height:100%;border-radius:50%;cursor:grab;position:relative;backdrop-filter:url(#refractionFilter) contrast(1.4) saturate(1.2);-webkit-backdrop-filter:url(#refractionFilter) contrast(1.4) saturate(1.2);background:radial-gradient(circle at 35% 35%,rgba(255,255,255,0.15) 0,transparent 80%);border:1px solid rgba(255,255,255,0.1);overflow:hidden;box-shadow:inset 0 0 30px rgba(255,255,255,0.3)}
+#iridescence{position:absolute;inset:-20%;background:conic-gradient(from 180deg,rgba(255,0,0,0.1),rgba(255,255,0,0.1),rgba(0,255,0,0.1),rgba(0,255,255,0.1),rgba(0,0,255,0.1),rgba(255,0,255,0.1),rgba(255,0,0,0.1));filter:blur(40px);mix-blend-mode:screen;opacity:.6;animation:swirl 12s linear infinite}
+#fixed-glints::before{content:'';position:absolute;top:10%;left:15%;width:30%;height:15%;background:linear-gradient(to bottom,rgba(255,255,255,0.6),transparent);filter:blur(8px);border-radius:50%;transform:rotate(-35deg)}
+@keyframes swirl{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.section{padding:12vh 6vw;min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative}
+.noise{position:fixed;inset:0;background:url('https://grainy-gradients.vercel.app/noise.svg');opacity:.12;pointer-events:none;z-index:9999;mix-blend-mode:overlay}
+.vignette{position:fixed;inset:0;background:radial-gradient(circle,transparent 40%,rgba(0,0,0,0.6) 100%);pointer-events:none;z-index:9998;transition:opacity 2s ease}
+body.hope-mode .vignette{opacity:0}
+#cursor{position:fixed;width:12px;height:12px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:difference}
+body.locked{overflow:hidden;touch-action:none}
+#resources-section{display:none;background:var(--section-bg-white);color:var(--section-text-black);z-index:10}
+.resource-card{border-bottom:1px solid var(--border);padding:1.5rem 0;transition:transform .3s ease,color .3s ease}
+.animate-marquee{display:inline-block;animation:marquee 20s linear infinite}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
