@@ -20,6 +20,9 @@ body.hope-mode {
     --section-text-black: #1a1a1a;
     --border: rgba(0,0,0,0.1);
 }
+body {
+    touch-action: pan-x pan-y; /* Allows scrolling but disables pinch-zoom */
+}
 
 body {
     background-color: var(--bg);
