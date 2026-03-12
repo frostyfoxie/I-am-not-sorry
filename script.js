@@ -85,13 +85,13 @@ function updateBubble() {
     const size = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--bubble-size'));
     
     if (isDragging) {
-        pos.x += (targetPos.x - pos.x) * 0.5;
-        pos.y += (targetPos.y - pos.y) * 0.15;
+        pos.x += (targetPos.x - pos.x) * 0.25;
+        pos.y += (targetPos.y - pos.y) * 0.25;
         vel.x = pos.x - lastMouse.x; vel.y = pos.y - lastMouse.y;
         lastMouse.x = pos.x; lastMouse.y = pos.y;
     } else {
         time += 0.032;
-        vel.x += Math.sin(time) * 0.35; vel.y += Math.cos(time * 0.7) * 0.15;
+        vel.x += Math.sin(time) * 0.35; vel.y += Math.cos(time * 0.7) * 0.35;
         pos.x += vel.x; pos.y += vel.y;
         vel.x *= 0.97; vel.y *= 0.97;
         if (pos.x > w - size/2 || pos.x < size/2) vel.x *= -0.5;
