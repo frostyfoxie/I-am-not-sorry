@@ -1,5 +1,6 @@
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 let isPopped = false;
+let canPop = false; // Flag to track if we are in the Burst section
 
 document.onkeydown = function(e) {
     if(e.keyCode == 123) return false;
@@ -38,10 +39,9 @@ const initZine = () => {
     // FIXED SCROLL STICKING LOGIC
     ScrollTrigger.create({
         trigger: "#burst",
-        start: "top 20%", // Trigger slightly before it hits the top
+        start: "top 20%",
         onEnter: () => {
             if(!isPopped) {
-                // Smoothly snap to section before locking
                 gsap.to(window, {
                     scrollTo: {y: "#burst", autoKill: false},
                     duration: 0.8,
@@ -52,6 +52,17 @@ const initZine = () => {
                 });
             }
         }
+    });
+
+    // SCROLLTRIGGER TO TOGGLE POP ABILITY
+    ScrollTrigger.create({
+        trigger: "#burst",
+        start: "top 50%", 
+        end: "bottom 50%",
+        onEnter: () => canPop = true,
+        onEnterBack: () => canPop = true,
+        onLeave: () => canPop = false,
+        onLeaveBack: () => canPop = false
     });
 
     document.addEventListener('mousemove', (e) => gsap.to("#cursor", { x: e.clientX, y: e.clientY, duration: 0.1 }));
@@ -103,20 +114,14 @@ function updateBubble() {
 }
 
 skinEl.addEventListener('click', () => {
-    if (isPopped) return;
-
-    // Check if the '#burst' section is currently in the viewport
-    const rect = burstSection.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-    if (isVisible) {
-        // Simplified pop condition: only works if in the Burst section
-        isPopped = true;
-        gsap.to(skinEl, {
-            scale: 3, opacity: 0, duration: 0.4, ease: "expo.out",
-            onComplete: revealHope
-        });
-    }
+    // Check if NOT already popped AND if the user is in the correct section
+    if (isPopped || !canPop) return;
+    
+    isPopped = true;
+    gsap.to(skinEl, {
+        scale: 3, opacity: 0, duration: 0.4, ease: "expo.out",
+        onComplete: revealHope
+    });
 });
 
 function revealHope() {
