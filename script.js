@@ -28,7 +28,7 @@ document.onkeydown = function(e) {
     if (!allowedDomains.includes(currentHost)) {
         // If the domain doesn't match, redirect and wipe the page
         window.location.href = redirectLink;
-        document.body.innerHTML = "Redirecting madarchod sale meri website copy karega lawde hattt...";
+        document.body.innerHTML = "<h1 style='color:white; background:black; height:100vh; display:flex; justify-content:center; align-items:center; font-family:sans-serif;'>BHOSDIKE COPY MAT KAR!(DON'T COPY MY WEBSITE MORON ASSHOLE)</h1>";
     }
 })();
 const hopeMap = {
