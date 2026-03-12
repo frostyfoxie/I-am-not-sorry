@@ -14,7 +14,7 @@ document.onkeydown = function(e) {
 (function() {
     // 1. Define where the site is allowed to run
     const allowedDomains = [
-        "frostyfoxie.github.io", 
+        "frostyfoxie.github.io/", 
         "localhost", 
         "127.0.0.1"
     ];
