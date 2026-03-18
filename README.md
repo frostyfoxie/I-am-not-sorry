@@ -5,7 +5,7 @@
 
 An immersive, interactive digital experience exploring the invisible spheres of societal pressure, body policing, and the weight of patriarchy. This zine serves as both a critique and a celebration of liberation.
 
-[**Explore the Live Zine**](https://frostyfoxie.github.io/I-am-not-sorry/)
+[**Explore the Site**](https://frostyfoxie.github.io/I-am-not-sorry/)
 
 ---
 
